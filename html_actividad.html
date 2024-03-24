@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPORTACIONE A PDF Y Excel</title>
+    <!-- Enlaces a las bibliotecas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <!-- Tabla de datos -->
+    <table id="tablaDatos">
+        <thead>
+            <tr>
+                <th>Nombres:</th>
+                <th>Emails:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jerson</td>
+                <td>jer@sise.com.pe</td>
+            </tr>
+            <tr>
+                <td>Pedro</td>
+                <td>pedro@sise.com.pe</td>
+            </tr>
+            <tr>
+                <td>diana</td>
+                <td>diana@sanpablo.com.edu</td>
+            </tr>
+            <tr>
+                <td>maive</td>
+                <td>maive@carrion.com.edu</td>
+            </tr>
+            <tr>
+                <td>edilson</td>
+                <td>edilson@sise.com.pe</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Botones de exportación -->
+    <div id="botonesExportacion">
+        <button onclick="exportarPDF()">Exportar a PDF</button>
+        <button onclick="exportarExcel()">Exportar a Excel</button>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        function exportarPDF() {
+            // Crear una instancia de jsPDF
+            var pdf = new jsPDF();
+
+            // Obtener la tabla de datos y generar el PDF
+            var tabla = document.getElementById('tablaDatos');
+            jsPDF.text(20, 20, 'Tabla de datos');
+            jsPDF.autoTable({ html: tabla });
+
+            // Descargar el PDF
+            jsPDF.save('datos.pdf');
+        }
+
+        function exportarExcel() {
+            // Crear un objeto workbook y añadir una hoja de cálculo
+            var wb = XLSX.utils.book_new();
+            var ws = XLSX.utils.table_to_sheet(document.getElementById('tablaDatos'));
+
+            // Añadir la hoja de cálculo al workbook
+            XLSX.utils.book_append_sheet(wb, ws, 'Datos');
+
+            // Guardar el archivo Excel
+            XLSX.writeFile(wb, 'datos.xlsx');
+        }
+    </script>
+</body>
+</html>
