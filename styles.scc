@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif; /* Cambio de fuente a una más común */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(150deg, #6c3483, #58d68d);
+    height: 100vh;
+    display: flex; /* Hacer que el contenedor principal ocupe toda la altura */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+}
+
+.container {
+    max-width: 400px; /* Reducir el ancho máximo para un aspecto más compacto */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px; /* Espacio adicional debajo del título */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px; /* Aumentar el relleno para un mejor aspecto de los campos de entrada */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px 24px; /* Aumentar el relleno del botón para una apariencia más atractiva */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Agregar transición suave al color de fondo */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
